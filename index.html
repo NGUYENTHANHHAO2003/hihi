@@ -1,27 +1,43 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
+
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>Gửi em ❤️</title>
+    <title>💖 Một điều muốn nói</title>
+
 
     <style>
+
+        /* =====================================
+           RESET
+        ===================================== */
+
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
-        body {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
 
-            padding: 20px;
+        html,
+        body {
+
+            width: 100%;
+            height: 100%;
+
+        }
+
+
+        body {
+
+            overflow: hidden;
 
             font-family:
                 "Segoe UI",
@@ -29,300 +45,1294 @@
                 sans-serif;
 
             background:
+
+                radial-gradient(
+                    circle at 20% 20%,
+                    #ffd6e7 0%,
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 80% 80%,
+                    #d8c8ff 0%,
+                    transparent 30%
+                ),
+
                 linear-gradient(
                     135deg,
-                    #ffd6e7,
-                    #ffeef5,
-                    #ffdbe9
+                    #ffb6d5,
+                    #cdb4ff,
+                    #a8d8ff
                 );
 
-            overflow-x: hidden;
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: #5b3150;
+
         }
 
-        /* Khung chính */
-        .love-box {
+
+        /* =====================================
+           SAO
+        ===================================== */
+
+        .stars {
+
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            z-index: 0;
+
+        }
+
+
+        .star {
+
+            position: absolute;
+
+            width: 4px;
+            height: 4px;
+
+            background: white;
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 10px white;
+
+            animation:
+                twinkle 2s
+                infinite
+                ease-in-out;
+
+        }
+
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+
+                opacity: .2;
+
+                transform:
+                    scale(.7);
+
+            }
+
+            50% {
+
+                opacity: 1;
+
+                transform:
+                    scale(1.4);
+
+            }
+
+        }
+
+
+        /* =====================================
+           PAGE
+        ===================================== */
+
+        .page {
+
+            position: relative;
+
+            z-index: 2;
+
             width: 100%;
-            max-width: 700px;
 
-            background: rgba(255, 255, 255, 0.95);
+            height: 100vh;
 
-            border-radius: 28px;
+            display: flex;
 
-            padding: 25px;
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 15px;
+
+        }
+
+
+        .hidden {
+
+            display: none !important;
+
+        }
+
+
+        /* =====================================
+           TRANG 1
+        ===================================== */
+
+        .intro {
+
+            text-align: center;
+
+            animation:
+                fadeIn 1.2s ease;
+
+        }
+
+
+        /* Phong bì */
+
+        .envelope {
+
+            width: 180px;
+
+            height: 130px;
+
+            margin:
+                0 auto 30px;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    #ffffff,
+                    #ffe6f0
+                );
+
+            border-radius: 15px;
+
+            position: relative;
+
+            box-shadow:
+
+                0 20px 45px
+                rgba(100,40,90,.25);
+
+            animation:
+                floating 3s
+                ease-in-out
+                infinite;
+
+        }
+
+
+        .envelope::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 0;
+            height: 0;
+
+            border-left:
+                90px solid transparent;
+
+            border-right:
+                90px solid transparent;
+
+            border-top:
+                65px solid #ffb1ce;
+
+        }
+
+
+        .heart-envelope {
+
+            position: absolute;
+
+            left: 50%;
+            top: 50%;
+
+            transform:
+                translate(-50%, -50%);
+
+            font-size: 45px;
+
+            z-index: 2;
+
+            animation:
+                heartbeat 1.5s infinite;
+
+        }
+
+
+        .intro h1 {
+
+            font-size:
+                clamp(
+                    28px,
+                    5vw,
+                    48px
+                );
+
+            color: #7b3f67;
+
+            margin-bottom: 18px;
+
+            text-shadow:
+                0 3px 10px
+                rgba(255,255,255,.8);
+
+        }
+
+
+        .intro p {
+
+            font-size: 18px;
+
+            color: #71465f;
+
+            margin-bottom: 28px;
+
+        }
+
+
+        /* Nút */
+
+        .start-btn {
+
+            border: none;
+
+            outline: none;
+
+            padding:
+                15px 34px;
+
+            border-radius: 50px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #ff75ad,
+                    #ff9ac6
+                );
+
+            color: white;
+
+            font-size: 18px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            box-shadow:
+
+                0 10px 25px
+                rgba(255,80,150,.35);
+
+            transition: .3s;
+
+        }
+
+
+        .start-btn:hover {
+
+            transform:
+                translateY(-4px)
+                scale(1.05);
+
+            box-shadow:
+
+                0 15px 35px
+                rgba(255,80,150,.45);
+
+        }
+
+
+        /* =====================================
+           TRANG 2
+        ===================================== */
+
+        #page2 {
+
+            padding: 12px;
+
+        }
+
+
+        /*
+            CHỈ CÓ 1 KHUNG DUY NHẤT
+
+            Ảnh và chữ đều nằm trong .card
+        */
+
+        .card {
+
+            position: relative;
+
+            width:
+                min(
+                    560px,
+                    94vw
+                );
+
+            max-height:
+                calc(100vh - 24px);
+
+            background:
+                rgba(255,255,255,.90);
+
+            backdrop-filter:
+                blur(15px);
+
+            border-radius: 30px;
+
+            padding:
+                18px 20px 16px;
 
             text-align: center;
 
             box-shadow:
-                0 15px 45px rgba(0, 0, 0, 0.15);
 
-            position: relative;
-            z-index: 2;
+                0 25px 60px
+                rgba(70,30,80,.25);
+
+            animation:
+                cardIn .8s ease;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
         }
 
-        /* Tiêu đề */
-        .title {
-            font-size: 32px;
-            color: #e91e63;
-            font-weight: 700;
 
-            margin-bottom: 20px;
+        /* =====================================
+           ICON GÓC KHUNG
+        ===================================== */
+
+        .card::before {
+
+            content: "💖";
+
+            position: absolute;
+
+            top: -17px;
+
+            left: 18px;
+
+            font-size: 35px;
+
+            animation:
+                heartbeat 1.5s infinite;
+
+            z-index: 5;
+
         }
 
-        /* Khung ảnh */
-        .image-box {
+
+        .card::after {
+
+            content: "🌸";
+
+            position: absolute;
+
+            top: -17px;
+
+            right: 18px;
+
+            font-size: 35px;
+
+            animation:
+                floating 2.5s infinite;
+
+            z-index: 5;
+
+        }
+
+
+        /* =====================================
+           ẢNH
+           KHÔNG CÓ KHUNG RIÊNG
+        ===================================== */
+
+        .image-wrapper {
+
             width: 100%;
 
             display: flex;
-            justify-content: center;
+
             align-items: center;
+
+            justify-content: center;
+
+            background: transparent;
+
+            box-shadow: none;
+
+            border-radius: 0;
 
             overflow: hidden;
 
-            border-radius: 22px;
+            margin-bottom: 12px;
 
-            background: #fff0f6;
+            position: relative;
 
-            margin-bottom: 22px;
         }
 
-        .image-box img {
+
+        .image-wrapper img {
+
             display: block;
 
-            width: 100%;
+            width: auto;
+
             max-width: 100%;
 
             height: auto;
 
+            max-height: 60vh;
+
             object-fit: contain;
 
-            border-radius: 22px;
+            border-radius: 25px;
+
+            transition:
+                transform .8s ease;
+
         }
 
-        /* Nội dung */
-        .message {
-            padding: 0 10px;
+
+        .image-wrapper:hover img {
+
+            transform:
+                scale(1.02);
+
         }
+
+
+        /* =====================================
+           ÁNH SÁNG CHẠY TRÊN ẢNH
+        ===================================== */
+
+        .image-wrapper::after {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: -100%;
+
+            width: 45%;
+
+            height: 100%;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,.45),
+                    transparent
+                );
+
+            transform:
+                skewX(-20deg);
+
+            animation:
+                shine 4s infinite;
+
+            pointer-events: none;
+
+        }
+
+
+        @keyframes shine {
+
+            0% {
+
+                left: -100%;
+
+            }
+
+            45%,
+            100% {
+
+                left: 150%;
+
+            }
+
+        }
+
+
+        /* =====================================
+           NỘI DUNG
+        ===================================== */
+
+        .message {
+
+            width: 100%;
+
+            text-align: center;
+
+            padding:
+                0 5px;
+
+        }
+
+
+        /* Icon */
+
+        .cute-icons {
+
+            font-size: 23px;
+
+            margin-bottom: 5px;
+
+            letter-spacing: 5px;
+
+        }
+
+
+        /* Câu chính */
 
         .message h2 {
-            color: #e91e63;
 
-            font-size: 27px;
+            font-size:
+                clamp(
+                    22px,
+                    3.5vw,
+                    30px
+                );
 
-            margin-bottom: 15px;
-        }
+            line-height: 1.35;
 
-        .message p {
-            color: #555;
+            color: #d84f8b;
 
-            font-size: 18px;
-
-            line-height: 1.8;
-
-            margin-bottom: 12px;
-        }
-
-        .highlight {
-            color: #e91e63;
+            margin-bottom: 8px;
 
             font-weight: 700;
 
-            font-size: 20px;
         }
 
-        .heart {
-            font-size: 42px;
 
-            margin-top: 10px;
+        /* Câu chúc */
+
+        .message p {
+
+            font-size:
+                clamp(
+                    16px,
+                    2.2vw,
+                    19px
+                );
+
+            line-height: 1.5;
+
+            color: #70475f;
+
+        }
+
+
+        .evening {
+
+            margin-top: 5px;
+
+            color:
+                #a04c77 !important;
+
+            font-weight: 600;
+
+        }
+
+
+        /* Icon cuối */
+
+        .decorations {
+
+            margin-top: 7px;
+
+            font-size: 23px;
+
+            letter-spacing: 5px;
 
             animation:
-                heartbeat 1.3s infinite;
+                floating 3s
+                ease-in-out
+                infinite;
+
         }
 
-        @keyframes heartbeat {
-            0% {
-                transform: scale(1);
+
+        /* =====================================
+           ANIMATION
+        ===================================== */
+
+        @keyframes fadeIn {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px);
+
             }
 
-            25% {
-                transform: scale(1.15);
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        @keyframes cardIn {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    scale(.85)
+                    translateY(30px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    scale(1)
+                    translateY(0);
+
+            }
+
+        }
+
+
+        @keyframes floating {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+
             }
 
             50% {
-                transform: scale(1);
+
+                transform:
+                    translateY(-8px);
+
             }
 
-            75% {
-                transform: scale(1.15);
-            }
-
-            100% {
-                transform: scale(1);
-            }
         }
 
-        /* Trái tim bay */
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+
+                transform:
+                    scale(1);
+
+            }
+
+            50% {
+
+                transform:
+                    scale(1.2);
+
+            }
+
+        }
+
+
+        /* =====================================
+           TIM BAY
+        ===================================== */
+
         .floating-heart {
+
             position: fixed;
 
-            bottom: -50px;
+            bottom: -40px;
 
-            font-size: 25px;
+            font-size: 22px;
 
-            animation:
-                floatUp 6s linear infinite;
-
-            opacity: 0.7;
+            pointer-events: none;
 
             z-index: 1;
 
-            pointer-events: none;
+            animation:
+                heartFly
+                linear
+                forwards;
+
         }
 
-        @keyframes floatUp {
+
+        @keyframes heartFly {
+
             0% {
-                transform:
-                    translateY(0)
-                    scale(1);
 
                 opacity: 0;
+
+                transform:
+                    translateY(0)
+                    translateX(0)
+                    rotate(0deg);
+
             }
 
-            20% {
-                opacity: 0.8;
+            15% {
+
+                opacity: 1;
+
             }
 
             100% {
-                transform:
-                    translateY(-110vh)
-                    scale(1.5);
 
                 opacity: 0;
+
+                transform:
+                    translateY(-110vh)
+                    translateX(var(--x))
+                    rotate(360deg);
+
             }
+
         }
 
-        /* Điện thoại */
+
+        /* =====================================
+           ĐIỆN THOẠI
+        ===================================== */
+
         @media (max-width: 600px) {
 
-            body {
-                padding: 12px;
+            .page {
+
+                padding: 8px;
+
             }
 
-            .love-box {
-                padding: 15px;
 
-                border-radius: 22px;
+            .card {
+
+                width: 94vw;
+
+                max-height:
+                    calc(100vh - 16px);
+
+                padding:
+                    13px 13px 12px;
+
+                border-radius: 24px;
+
             }
 
-            .title {
-                font-size: 25px;
 
-                margin-bottom: 15px;
+            .card::before {
+
+                top: -13px;
+
+                left: 12px;
+
+                font-size: 29px;
+
             }
 
-            .image-box {
-                border-radius: 17px;
+
+            .card::after {
+
+                top: -13px;
+
+                right: 12px;
+
+                font-size: 29px;
+
             }
 
-            .image-box img {
-                border-radius: 17px;
+
+            .image-wrapper {
+
+                margin-bottom: 9px;
+
             }
+
+
+            .image-wrapper img {
+
+                max-height: 46vh;
+
+                max-width: 100%;
+
+                border-radius: 15px;
+
+            }
+
+
+            .cute-icons {
+
+                font-size: 19px;
+
+                letter-spacing: 3px;
+
+            }
+
 
             .message h2 {
-                font-size: 23px;
+
+                font-size: 21px;
+
+                line-height: 1.3;
+
+                margin-bottom: 5px;
+
             }
+
 
             .message p {
-                font-size: 16px;
 
-                line-height: 1.7;
+                font-size: 15px;
+
+                line-height: 1.4;
+
             }
 
-            .highlight {
-                font-size: 18px;
+
+            .evening {
+
+                margin-top: 4px;
+
             }
 
-            .heart {
-                font-size: 35px;
+
+            .decorations {
+
+                font-size: 19px;
+
+                letter-spacing: 3px;
+
+                margin-top: 5px;
+
             }
+
         }
+
+
+        /* =====================================
+           MÀN HÌNH THẤP
+        ===================================== */
+
+        @media
+        (max-height: 750px)
+        and (min-width: 601px) {
+
+            .card {
+
+                padding:
+                    12px 16px 12px;
+
+            }
+
+
+            .image-wrapper img {
+
+                max-height: 44vh;
+
+            }
+
+
+            .cute-icons {
+
+                font-size: 19px;
+
+            }
+
+
+            .message h2 {
+
+                font-size: 23px;
+
+                margin-bottom: 4px;
+
+            }
+
+
+            .message p {
+
+                font-size: 15px;
+
+            }
+
+
+            .decorations {
+
+                margin-top: 3px;
+
+                font-size: 19px;
+
+            }
+
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <!-- Khung chính -->
-    <div class="love-box">
 
-        <div class="title">
-            💕 Một điều anh muốn nói với em 💕
-        </div>
+    <!-- =====================================
+         SAO
+    ===================================== -->
 
-        <!-- ẢNH -->
-        <div class="image-box">
-            <img src="anh.jpg" alt="Ảnh của chúng ta">
-        </div>
+    <div
+        class="stars"
+        id="stars"
+    ></div>
 
-        <!-- LỜI NHẮN -->
-        <div class="message">
 
-            <h2>
-                Gửi người anh thương ❤️
-            </h2>
 
-            <p>
-                Có một điều anh đã muốn nói với em
-                từ rất lâu rồi...
-            </p>
+    <!-- =====================================
+         TRANG 1
+    ===================================== -->
 
-            <p>
-                Cảm ơn em vì đã xuất hiện trong cuộc đời anh.
-                Cảm ơn những khoảnh khắc chúng ta đã có cùng nhau.
-            </p>
+    <section
+        class="page"
+        id="page1"
+    >
 
-            <p class="highlight">
-                Anh thích em ❤️
-            </p>
+        <div class="intro">
 
-            <p>
-                Và nếu em đồng ý,
-                anh muốn cùng em tạo thêm thật nhiều
-                kỷ niệm đẹp trong tương lai.
-            </p>
 
-            <div class="heart">
-                ❤️
+            <!-- PHONG BÌ -->
+
+            <div class="envelope">
+
+                <div class="heart-envelope">
+                    💌
+                </div>
+
             </div>
 
+
+            <!-- TIÊU ĐỀ -->
+
+            <h1>
+                Anh có 1 điều muốn nói với em 💖
+            </h1>
+
+
+            <p>
+                Có một chút điều dễ thương
+                anh muốn gửi đến em 🌷✨
+            </p>
+
+
+            <!-- NÚT -->
+
+            <button
+                class="start-btn"
+                onclick="showPage2()"
+            >
+                💕 Nhấn vào đây 💕
+            </button>
+
+
         </div>
 
-    </div>
+    </section>
 
 
-    <!-- TRÁI TIM BAY -->
-    <div class="floating-heart"
-         style="left: 10%; animation-delay: 0s;">
-        ❤️
-    </div>
 
-    <div class="floating-heart"
-         style="left: 25%; animation-delay: 2s;">
-        💕
-    </div>
+    <!-- =====================================
+         TRANG 2
+    ===================================== -->
 
-    <div class="floating-heart"
-         style="left: 45%; animation-delay: 4s;">
-        ❤️
-    </div>
+    <section
+        class="page hidden"
+        id="page2"
+    >
 
-    <div class="floating-heart"
-         style="left: 65%; animation-delay: 1s;">
-        💗
-    </div>
 
-    <div class="floating-heart"
-         style="left: 85%; animation-delay: 3s;">
-        ❤️
-    </div>
+        <!--
+            CHỈ 1 KHUNG DUY NHẤT
+        -->
+
+        <div class="card">
+
+
+            <!-- =================================
+                 ẢNH
+            ================================= -->
+
+            <div class="image-wrapper">
+
+                <img
+                    src="./anh.jpg"
+                    alt="Ảnh của em"
+                >
+
+            </div>
+
+
+
+            <!-- =================================
+                 LỜI NHẮN
+            ================================= -->
+
+            <div class="message">
+
+
+                <!-- ICON -->
+
+                <div class="cute-icons">
+
+                    🥰 🌸 💕 🌷
+
+                </div>
+
+
+                <!-- CÂU CHÍNH -->
+
+                <h2>
+
+                    Anh thấy em rất dễ thương
+
+                    <br>
+
+                    và xinh đẹp 💖
+
+                </h2>
+
+
+                <!-- CÂU CHÚC -->
+
+                <p>
+
+                    Chúc em buổi tối vuiii vẻ nhé 🌙✨
+
+                </p>
+
+
+                <!-- CÂU PHỤ -->
+
+                <p class="evening">
+
+                    Mong em luôn vui vẻ
+                    và nở nụ cười thật xinh 🥰
+
+                </p>
+
+
+                <!-- ICON CUỐI -->
+
+                <div class="decorations">
+
+                    💗 ✨ 🌸 🦋 🌷 ✨ 💗
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         JAVASCRIPT
+    ===================================== -->
+
+    <script>
+
+
+        /* =====================================
+           TẠO SAO
+        ===================================== */
+
+        const stars =
+            document.getElementById("stars");
+
+
+        for (
+            let i = 0;
+            i < 160;
+            i++
+        ) {
+
+
+            const star =
+                document.createElement("div");
+
+
+            star.className =
+                "star";
+
+
+            star.style.left =
+                Math.random() * 100 + "%";
+
+
+            star.style.top =
+                Math.random() * 100 + "%";
+
+
+            star.style.animationDelay =
+                Math.random() * 3 + "s";
+
+
+            star.style.animationDuration =
+                (
+                    1.5 +
+                    Math.random() * 2.5
+                ) + "s";
+
+
+            stars.appendChild(star);
+
+        }
+
+
+
+        /* =====================================
+           CHUYỂN SANG TRANG 2
+        ===================================== */
+
+        function showPage2() {
+
+
+            document
+                .getElementById("page1")
+                .classList.add("hidden");
+
+
+            document
+                .getElementById("page2")
+                .classList.remove("hidden");
+
+
+            createHearts();
+
+        }
+
+
+
+        /* =====================================
+           TIM / HOA BAY
+        ===================================== */
+
+        function createHearts() {
+
+
+            const icons = [
+
+                "💖",
+                "💕",
+                "💗",
+                "💓",
+                "💞",
+                "🌸",
+                "✨",
+                "🦋"
+
+            ];
+
+
+            setInterval(() => {
+
+
+                const heart =
+                    document.createElement("div");
+
+
+                heart.className =
+                    "floating-heart";
+
+
+                heart.innerHTML =
+                    icons[
+                        Math.floor(
+                            Math.random()
+                            * icons.length
+                        )
+                    ];
+
+
+                heart.style.left =
+                    Math.random()
+                    * 100
+                    + "vw";
+
+
+                heart.style.fontSize =
+                    (
+                        16 +
+                        Math.random() * 22
+                    )
+                    + "px";
+
+
+                heart.style.animationDuration =
+                    (
+                        5 +
+                        Math.random() * 5
+                    )
+                    + "s";
+
+
+                heart.style.setProperty(
+                    "--x",
+                    (
+                        Math.random()
+                        * 200
+                        - 100
+                    )
+                    + "px"
+                );
+
+
+                document.body.appendChild(
+                    heart
+                );
+
+
+                setTimeout(() => {
+
+                    heart.remove();
+
+                }, 10000);
+
+
+            }, 500);
+
+        }
+
+
+    </script>
+
 
 </body>
+
 </html>
